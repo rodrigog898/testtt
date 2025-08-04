@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { HeaderComponent } from './components/header.component';
-import { SidebarComponent } from './components/sidebar.component';
-import { CalendarComponent } from './components/calendar.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+import { appConfig } from './app/app.config';
+import { HeaderComponent } from './app/shared/components/header/header.component';
+import { SidebarComponent } from './app/shared/components/sidebar/sidebar.component';
+import { NotificationComponent } from './app/shared/components/notification/notification.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, SidebarComponent, CalendarComponent],
+  imports: [RouterOutlet, HeaderComponent, SidebarComponent, NotificationComponent],
   template: `
     <div class="app-container">
       <app-header></app-header>
       <app-sidebar></app-sidebar>
       <main class="main-content">
-        <app-calendar></app-calendar>
+        <router-outlet></router-outlet>
       </main>
+      <app-notification></app-notification>
     </div>
   `,
   styles: [`
@@ -24,16 +28,20 @@ import { CalendarComponent } from './components/calendar.component';
     }
 
     .main-content {
-      margin-left: 240px;
-      margin-top: 80px;               /* coincide con el header */
+      margin-left: 250px;
+      margin-top: 80px;
       min-height: calc(100vh - 80px);
+      transition: margin-left 0.3s ease;
     }
 
     @media (max-width: 768px) {
-      .main-content { margin-left: 0; }
+      .main-content { 
+        margin-left: 0; 
+      }
     }
   `]
 })
 export class App { }
 
-bootstrapApplication(App);
+bootstrapApplication(App, appConfig)
+  .catch(err => console.error(err));
