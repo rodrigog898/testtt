@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <nav class="sidebar">
       <div class="sidebar-content">
+
         <!-- MAIN Section -->
         <div class="menu-section">
           <h3 class="section-title">MAIN</h3>
@@ -66,77 +67,80 @@ import { CommonModule } from '@angular/common';
             </li>
           </ul>
         </div>
+
       </div>
     </nav>
   `,
   styles: [`
     .sidebar {
       position: fixed;
+      top: 80px;
       left: 0;
-      top: 60px;
-      width: 240px;
-      height: calc(100vh - 60px);
-      background-color: var(--sidebar-bg);
-      border-right: 1px solid var(--border-color);
+      width: 250px;                             /* ancho más generoso */
+      height: calc(100vh - 80px);
+      background-color: var(--sidebar-bg);      /* asegúrate que sea #fff en global_styles */
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);  /* sombra suave */
       overflow-y: auto;
     }
 
     .sidebar-content {
-      padding: 24px 0;
+      padding: 1rem;
     }
 
-    .menu-section {
-      margin-bottom: 32px;
+    .menu-section + .menu-section {
+      margin-top: 2rem;
     }
 
     .section-title {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      padding: 0 24px 8px;
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
     }
 
     .menu-list {
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .menu-item {
       display: flex;
       align-items: center;
-      padding: 8px 24px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s ease;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 400;
-      margin: 1px 0;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
     }
-
     .menu-item:hover {
-      background-color: var(--sidebar-hover);
+      background-color: #F2F4F6;
       color: var(--text-primary);
     }
 
     .menu-item.active {
-      background-color: var(--sidebar-active);
-      color: var(--reale-blue);
+      background-color: #F6F7F9;
+      color: var(--text-primary);
       font-weight: 600;
-      border-right: 3px solid var(--reale-blue);
+      border-left: 4px solid var(--reale-blue);
     }
 
     .menu-icon {
-      width: 18px;
-      height: 18px;
-      margin-right: 12px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
+      color: inherit; /* hereda el color de .menu-item */
     }
 
     .menu-text {
       flex: 1;
-      font-size: 14px;
     }
   `]
 })

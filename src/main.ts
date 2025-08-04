@@ -25,14 +25,12 @@ import { CalendarComponent } from './components/calendar.component';
 
     .main-content {
       margin-left: 240px;
-      margin-top: 60px;
-      min-height: calc(100vh - 60px);
+      margin-top: 80px;               /* coincide con el header */
+      min-height: calc(100vh - 80px);
     }
 
     @media (max-width: 768px) {
-      .main-content {
-        margin-left: 0;
-      }
+      .main-content { margin-left: 0; }
     }
   `]
 })

@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
     <header class="header">
       <div class="header-content">
         <div class="logo-container">
-          <img 
-            src="https://apps4.realechile.cl/portalClientes/assets/reale-seguros-logo.svg" 
-            alt="Reale Seguros" 
+          <img
+            src="https://www.reale.cl/v2/wp-content/themes/reale_010720/img/logoRealeBlanco.png"
+            alt="Reale Seguros"
             class="logo"
           />
         </div>
@@ -21,7 +21,8 @@ import { Component } from '@angular/core';
   styles: [`
     .header {
       background-color: var(--reale-blue);
-      height: 60px;
+      border-bottom: 1px solid var(--border-color);
+      height: 80px;                      /* header más alto */
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: fixed;
       top: 0;
@@ -38,34 +39,22 @@ import { Component } from '@angular/core';
       padding: 0 20px;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
+    .logo-container { display: flex; align-items: center; }
+    .logo           { height: 40px; width: auto; }
 
-    .logo {
-      height: 35px;
-      width: auto;
-    }
-
-    .user-menu {
-      display: flex;
-      align-items: center;
-    }
-
+    .user-menu { display: flex; align-items: center; }
     .avatar {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      background-color: rgba(255,255,255,0.3);
+      border: 2px solid rgba(255,255,255,0.5);
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .avatar:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-      border-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255,255,255,0.4);
+      border-color: rgba(255,255,255,0.7);
     }
   `]
 })

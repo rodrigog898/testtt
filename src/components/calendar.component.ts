@@ -43,6 +43,10 @@ interface CalendarDay {
             <span class="legend-dot weekend"></span>
             <span class="legend-text">Fines de semana</span>
           </div>
+          <div class="legend-item">
+            <span class="legend-dot requested"></span>
+            <span class="legend-text">Días solicitados</span>
+          </div>
         </div>
       </div>
 
@@ -51,15 +55,11 @@ interface CalendarDay {
         <div *ngFor="let calendar of calendars" class="calendar-widget">
           <div class="calendar-header">
             <button class="nav-button" (click)="previousMonth()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15,18 9,12 15,6"/>
-              </svg>
+              <!-- SVG → -->
             </button>
             <h3 class="month-title">{{ calendar.month }} {{ calendar.year }}</h3>
             <button class="nav-button" (click)="nextMonth()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9,18 15,12 9,6"/>
-              </svg>
+              <!-- SVG ← -->
             </button>
           </div>
           
@@ -93,14 +93,15 @@ interface CalendarDay {
   styles: [`
     .calendar-container {
       padding: 32px;
-      max-width: 1400px;
+      width: calc(100% - 240px);
       margin: 0 auto;
     }
 
     .main-title {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--text-primary);
+      font-family: "GeistSans", "GeistSans Fallback", sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #0A0A0A;
       margin-bottom: 32px;
       line-height: 1.2;
     }
@@ -144,25 +145,12 @@ interface CalendarDay {
       flex-shrink: 0;
     }
 
-    .legend-dot.available {
-      background-color: #8b5cf6;
-    }
-
-    .legend-dot.current {
-      background-color: #3b82f6;
-    }
-
-    .legend-dot.selected {
-      background-color: #06b6d4;
-    }
-
-    .legend-dot.holiday {
-      background-color: #ef4444;
-    }
-
-    .legend-dot.weekend {
-      background-color: #9ca3af;
-    }
+    .legend-dot.available   { background-color: #06b6d4; }
+    .legend-dot.current     { background-color: #004B9B; }
+    .legend-dot.selected    { background-color: #8b5cf6; }
+    .legend-dot.holiday     { background-color: #ef4444; }
+    .legend-dot.weekend     { background-color: #9ca3af; }
+    .legend-dot.requested   { background-color: #10b981; }
 
     .calendars-grid {
       display: grid;
